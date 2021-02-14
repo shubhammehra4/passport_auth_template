@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate') %>
+<h1 class="mb-3">Login</h1>
+<h4 class="d-flex justify-content-around w-50">
+    <a href="/auth/google"><i class="fa fa-google" aria-hidden="true"></i></a>
+    <a href="/auth/google"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="/auth/google"><i class="fa fa-github" aria-hidden="true"></i></a>
+</h4>
+<hr class="w-50">
+<form action="/login" method="POST" class="d-flex flex-column w-50">
+    <div class="from-group">
+        <label for="username">Username</label>
+        <input class="form-control" type="text" id="username" name="username" />
+    </div>
+    <div class="from-group mt-3">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" id="password" name="password" />
+    </div>
+
+    <div class="from-group mt-3">
+        <button type="submit" class="btn btn-success">Submit</button>
+        <a class="float-end" href="/register">Register</a>
+    </div>
+</form>

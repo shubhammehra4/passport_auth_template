@@ -1,0 +1,12 @@
+<% layout('layouts/boilerplate') %>
+
+<% if(currentUser) { %>
+<h1>Name :- <%= currentUser.name %> </h1>
+<h4>Username :- <%= currentUser.username %> </h4>
+<h6>email:- <%= currentUser.email %> </h6>
+<a href="/logout">Logout</a>
+<% } else { %>
+<h1>Login using the awesome auth </h1>
+<a href="/register">Register</a>
+<a href="/login">Login</a>
+<% } %>
