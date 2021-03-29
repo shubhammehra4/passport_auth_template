@@ -43,7 +43,7 @@ router.get(
     "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-        req.flash("success", "Welcome New User!");
+        req.flash("success", "Welcome New Google User!");
         res.redirect("/");
     }
 );
@@ -52,13 +52,20 @@ router.get("/auth/twitter", passport.authenticate("twitter"));
 
 router.get(
     "/auth/twitter/callback",
-    passport.authenticate("twitter", {
-        successRedirect: "/",
-        failureRedirect: "/register",
-        failureFlash: true,
-        successFlash: true,
-        successMessage: "Welcome!",
-    })
+    passport.authenticate("twitter", { failureRedirect: "/login" }),
+    function (req, res) {
+        res.redirect("/");
+    }
+);
+
+router.get("/auth/facebook", passport.authenticate("facebook"));
+
+router.get(
+    "/auth/facebook/callback",
+    passport.authenticate("facebook", { failureRedirect: "/login" }),
+    function (req, res) {
+        res.redirect("/");
+    }
 );
 
 router.get("/login", isLoggedOut, (req, res) => {
